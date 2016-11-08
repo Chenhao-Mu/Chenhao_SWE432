@@ -5,10 +5,10 @@
     <title>Title</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src="../node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
-    <script type="text/javascript" src="../node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
-    <script type="text/javascript" src="../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
-    <link rel="stylesheet" type="text/css" href="../node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+    <script type="text/javascript" src="jasmine/jasmine-core/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine/jasmine-core/jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine/jasmine-core/boot.js"></script>
+    <link rel="stylesheet" type="text/css" href="jasmine/jasmine-core/jasmine.css">
 </head>
 <body>
     <div id="todoItems"></div>
@@ -40,7 +40,7 @@
                 todoItems.push($(this).val());
             });
 
-            $.post("http://127.0.0.1:4000",  { todoItems: todoItems } )
+            $.post("http://127.0.0.1:5000",  { todoItems: todoItems } )
                 .done(function(data)
                 {
                     $('#sentiments').text(data.sentiments);

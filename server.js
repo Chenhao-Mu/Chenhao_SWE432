@@ -23,6 +23,11 @@ app.all('/', function(req, res, next) {
     next();
 });
 
+app.get("/", function(req, res) {
+  res.send("Hello World");
+});
+
+app.listen(3000);
 app.post('/', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
