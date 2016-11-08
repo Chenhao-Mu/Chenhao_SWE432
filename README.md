@@ -1,7 +1,10 @@
 #Sample project of SWE432
 This sample project is deployed on Heroku.  
+Either use  
 `http://immense-wave-28265.herokuapp.com/lecture7Demo1-heroku.html`  
-
+Or   
+`https://chenhao-mu.github.io/Chenhao_SWE432/public/lecture7Demo1-heroku.html`   
+to access.
 ##Set up Heroku
 
 ##Set up firebase with Heroku
