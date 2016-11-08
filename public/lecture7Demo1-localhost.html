@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+    <script type="text/javascript" src="../node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+    <script type="text/javascript" src="../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+</head>
+<body>
+    <div id="todoItems"></div>
+    <button id="new">New item</button>
+    <button id="save">Save</button>
+    <br/><br/>
+    <div id="sentiments"></div>
+
+    <script>
+        "use strict";
+
+        $('#new').click(function()
+        {
+            $('#todoItems').append(
+                '<div class="todoItem"><input type="text"/><button onclick="deleteItem(this.parentElement)">&#x2716;</button></div>'
+            );
+        });
+
+        function deleteItem(divElem)
+        {
+            divElem.parentElement.removeChild(divElem);
+        }
+
+        $('#save').click(function()
+        {
+            var todoItems = [];
+            $('.todoItem input').each(function()
+            {
+                todoItems.push($(this).val());
+            });
+
+            $.post("http://127.0.0.1:4000",  { todoItems: todoItems } )
+                .done(function(data)
+                {
+                    $('#sentiments').text(data.sentiments);
+                });
+        });
+    describe("toBeTruthy", function() { 
+it("should pass the true boolean value", function() { 
+expect(true).toBeTruthy();  }); 
+ 
+it("should pass any number different than 0", function() { 
+expect(1).toBeTruthy();  }); 
+it("should pass any non empty string", function() {  expect("a").toBeTruthy(); 
+});   
+it("should pass any object (including an array)", function() {  expect([]).toBeTruthy(); 
+expect({}).toBeTruthy(); 
+});  
+}); 
+    </script>
+</body>
+</html>
