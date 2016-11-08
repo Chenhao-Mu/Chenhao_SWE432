@@ -5,7 +5,20 @@ Either use
 Or   
 `https://chenhao-mu.github.io/Chenhao_SWE432/public/lecture7Demo1-heroku.html`   
 to access.
-##Set up Heroku
+##Set up [Heroku](https://devcenter.heroku.com/categories/nodejs).
+Heroku can provide a server to be deployed your app.
+1. Create a Heroku account.  
+2. Download the [Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up), and install it. Then run `heroku login` and enter your heroku credentials.    
+3. Create a Heroku app.   
+`heroku create` or `heroku create example` to create a app with a name "example" and a git remote that must be used to receive your application source.  
+Verify the remote via: `git remote -v`  
+4. Write your node.js app.  
+5. Deploying code.  
+`git push heroku master`
+Some useful commands for heroku:  
+`heroku logs`: retrieve 100 log lines by default. use `heroku logs -n 200` if you want 200 logs.  
+ `heroku domains`: Getting your heroku domains.  
+ `heroku open`: Open your heroku app.
 
 ##Set up firebase with Heroku
 
