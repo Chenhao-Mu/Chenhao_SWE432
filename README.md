@@ -14,13 +14,30 @@ Heroku can provide a server to be deployed your app.
 Verify the remote via: `git remote -v`  
 4. Write your node.js app.  
 5. Deploying code.  
-`git push heroku master`
+`git push heroku master`  
 Some useful commands for heroku:  
 `heroku logs`: retrieve 100 log lines by default. use `heroku logs -n 200` if you want 200 logs.  
  `heroku domains`: Getting your heroku domains.  
  `heroku open`: Open your heroku app.
 
-##Set up firebase with Heroku
+##Set up [firebase](https://firebase.google.com) with Heroku  
+Firebase is a mobile and web application platform with tools and infrastructure designed to help developers build high-quality apps.  
+In this sample project, we use firebase to maintain databases.  
+1. Create firebase account if not have google account.  
+2. Create new project.  
+3. Create service account.   
+Click your new project, and "Setting" -> "Permissions" -> "Service accounts" -> "Create service account". In the popup dialog, create the account and click "Furnish a new private key". Then download the key.
+4. In the node.js backend code, you need to add the code below to access your firebase(this file is deployed in Heroku, so clients/users won't get your key):  
+ `var firebase = require('firebase');`  
+ `firebase.initializeApp({`  
+  `databaseURL: 'https://[project_name].firebaseio.com',`  
+  `serviceAccount: '[your_private_key_name]'`  
+`});`  
+5. Add firebase package to package.json.  
+`npm install firebase --save`  
+6. Finally, your server code can access to your firebase database via code like `firebase.database().ref().child("[project_name]")`.  
+More information about how to read and write data using Javascript/Node.js can be found here. [https://firebase.google.com/docs/database/web/read-and-write](https://firebase.google.com/docs/database/web/read-and-write)  
+
 
 ##Using Jasmine with node.js
 We know Jasmine is very useful to test app at front end. It can also be used in backend testing node.js codes.  
