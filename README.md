@@ -5,8 +5,12 @@ Either use
 Or   
 `https://chenhao-mu.github.io/Chenhao_SWE432/public/sample-project1-heroku.html`   
 to access.
+
+##Set up [node.js](https://nodejs.org/en/)   
+Make sure having node.js installed. If not, download [here](https://nodejs.org/en/)  
+
 ##Set up [Heroku](https://devcenter.heroku.com/categories/nodejs).
-Heroku can provide a server to be deployed your app.
+Heroku can provide a server to be deployed your app.  
 1. Create a Heroku account.  
 2. Download the [Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up), and install it. Then run `heroku login` and enter your heroku credentials.    
 3. Create a Heroku app.   
@@ -25,7 +29,7 @@ Express is a minimal and flexible Node.js web application framework that provide
 We use express to handle HTTP request for servers here. Installing can be found here. [Installing](http://expressjs.com/en/starter/installing.html).   
 More information about using Express can be found at the line by ine code explanation.  
 
-##Set up [firebase](https://firebase.google.com) with Heroku  
+##Set up [Firebase](https://firebase.google.com) with Heroku  
 Firebase is a mobile and web application platform with tools and infrastructure designed to help developers build high-quality apps.  
 In this sample project, we use firebase to maintain databases.  
 1. Create firebase account if not have google account.  
@@ -40,7 +44,6 @@ Click your new project, and "Setting" -> "Permissions" -> "Service accounts" -> 
 `});`  
 5. Add firebase package to package.json.  
 `npm install firebase --save`  
-
 6. Finally, your server code can access to your firebase database via code like `firebase.database().ref().child("[project_name]")`.  
 More information about how to read and write data using Javascript/Node.js can be found here. [https://firebase.google.com/docs/database/web/read-and-write](https://firebase.google.com/docs/database/web/read-and-write)  
 
