@@ -1,6 +1,6 @@
 {
-  "name": "lecture7demojon",
-  "version": "1.0.0",
+  "name": "Sample-project",
+  "version": "1.1.0",
   "description": "",
   "main": "server.js",
   "scripts": {
