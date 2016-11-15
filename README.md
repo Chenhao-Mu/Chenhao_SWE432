@@ -18,7 +18,12 @@ Verify the remote via: `git remote -v`
 Some useful commands for heroku:  
 `heroku logs`: retrieve 100 log lines by default. use `heroku logs -n 200` if you want 200 logs.  
  `heroku domains`: Getting your heroku domains.  
- `heroku open`: Open your heroku app.
+ `heroku open`: Open your heroku app.  
+
+##Using [Express](http://expressjs.com)  
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.  
+We use express to handle HTTP request for servers here. Installing can be found here. [Installing](http://expressjs.com/en/starter/installing.html).   
+More information about using Express can be found at the line by ine code explanation.  
 
 ##Set up [firebase](https://firebase.google.com) with Heroku  
 Firebase is a mobile and web application platform with tools and infrastructure designed to help developers build high-quality apps.  
@@ -26,20 +31,21 @@ In this sample project, we use firebase to maintain databases.
 1. Create firebase account if not have google account.  
 2. Create new project.  
 3. Create service account.   
-Click your new project, and "Setting" -> "Permissions" -> "Service accounts" -> "Create service account". In the popup dialog, create the account and click "Furnish a new private key". Then download the key.
+Click your new project, and "Setting" -> "Permissions" -> "Service accounts" -> "Create service account". In the popup dialog, create the account and click "Furnish a new private key" -> "JSON". Then download the key.  
 4. In the node.js backend code, you need to add the code below to access your firebase(this file is deployed in Heroku, so clients/users won't get your key):  
- `var firebase = require('firebase');`  
+ `var firebase = require('firebase');`    
  `firebase.initializeApp({`  
   `databaseURL: 'https://[project_name].firebaseio.com',`  
-  `serviceAccount: '[your_private_key_name]'`  
+  `serviceAccount: '[path_to_your_private_key]'`  
 `});`  
 5. Add firebase package to package.json.  
 `npm install firebase --save`  
+
 6. Finally, your server code can access to your firebase database via code like `firebase.database().ref().child("[project_name]")`.  
 More information about how to read and write data using Javascript/Node.js can be found here. [https://firebase.google.com/docs/database/web/read-and-write](https://firebase.google.com/docs/database/web/read-and-write)  
 
 
-##Using Jasmine with node.js
+##Using [Jasmine](https://jasmine.github.io) with node.js  
 We know Jasmine is very useful to test app at front end. It can also be used in backend testing node.js codes.  
 1. we need add a package jasmine-node into the file package.json.  
 `npm install jasmine-node --save`  
@@ -60,6 +66,7 @@ Then put the following command into package.json file.
         `done();`  
       `}); }); }); });`   
       This example tests if the GET request from fornt-end to back-end server will get the status code 200 (success).  
-5. After writting spec code for testing server. start the server(locally using  `npm start`) and run `npm test` to run all the Jasmine tests.
+5. After writting spec code for testing server. start the server(locally using  `npm start`) and run `npm test` to run all the Jasmine tests.  
+More information can be found [here.](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-jasmine)  
 
   
